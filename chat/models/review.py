@@ -1,10 +1,19 @@
-from sqlalchemy import Column, Integer, String, DateTime, func
-from chat.database.database import Base
+from sqlalchemy import Column, String, DateTime, func
 
-class Review(Base):
+import shortuuid
+from sqlalchemy.orm import registry
+
+table_registry = registry()
+
+@table_registry.mapped_as_dataclass
+class Review:
     __tablename__ = "reviews"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True, default=lambda: shortuuid.uuid())
     text = Column(String, nullable=False)
     sentiment = Column(String, nullable=False)
     created_at = Column(DateTime, server_default=func.now(), nullable=False)
+
+    def __init__(self, text, sentiment):
+        self.text = text
+        self.sentiment = sentiment

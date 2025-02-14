@@ -8,7 +8,7 @@ class ReviewCreate(ReviewBase):
     pass
 
 class ReviewResponse(ReviewBase):
-    id: int
+    id: str
     sentiment: str
     created_at: datetime
 
