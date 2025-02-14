@@ -1,6 +1,6 @@
 from datetime import datetime
 from http import HTTPStatus
-from typing import Dict, List
+from typing import List
 
 from controler import review as crud_review
 from database.database import get_db
