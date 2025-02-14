@@ -28,7 +28,7 @@ class SentimentCount(BaseModel):
 
     class Config:
         alias_generator = lambda s: s.lower()
-        allow_population_by_field_name = True
+        populate_by_name = True
 
 
 class ReviewReport(BaseModel):
@@ -38,4 +38,4 @@ class ReviewReport(BaseModel):
 
     class Config:
         alias_generator = lambda s: s.lower()
-        allow_population_by_field_name = True
+        populate_by_name = True

@@ -13,6 +13,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-
-
-settings = Settings()
