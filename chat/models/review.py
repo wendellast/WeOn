@@ -1,9 +1,9 @@
-from sqlalchemy import Column, String, DateTime, func
-
 import shortuuid
+from sqlalchemy import Column, DateTime, String, func
 from sqlalchemy.orm import registry
 
 table_registry = registry()
+
 
 @table_registry.mapped_as_dataclass
 class Review:
