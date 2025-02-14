@@ -15,7 +15,7 @@ services:
     restart: always
 
   web:
-    build: ./chat
+    build: .
     entrypoint: ./entrypoint.sh
     container_name: sentiment-api
     ports:

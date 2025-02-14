@@ -1,13 +1,16 @@
 [tool.pytest.ini_options]
 pythonpath = "."
-addopts = "--doctest-modules"
+testpaths = ["tests"]
+addopts = "--doctest-modules --cov= --cov-report=term-missing"
+python_files = "test_*.py"  # Adiciona esta linha
+
 
 [tool.isort]
 profile = "black"
 line_length = 79
 
 [tool.taskipy.tasks]
-check = "black --check --diff . && isort --check --diff ."
+lint = "black --check --diff . && isort --check --diff ."
 correct = "black . && isort ."
-test = "pytest -s -x  -vv"
+test = "pytest -s -x --cov=. -vv"
 post_test = "coverage html"

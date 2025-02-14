@@ -77,4 +77,3 @@ def test_create_review(session):
         "category": "serviço",
         "created_at": review.created_at,
     }
-

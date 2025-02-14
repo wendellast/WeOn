@@ -1,13 +1,14 @@
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 
-from models.review import Review
-from schemas.review import ReviewCreate
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
+from models.review import Review
+from schemas.review import ReviewCreate
 
-def create_review(db: Session, review: ReviewCreate, sentiment: str) -> Review:
+
+def create_review(db: Session, review: ReviewCreate) -> Review:
     """
     Cria uma nova avaliação no banco de dados.
 
