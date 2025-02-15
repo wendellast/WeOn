@@ -6,7 +6,9 @@ from sqlalchemy.orm import Session
 
 from models.review import Review
 from schemas.review import ReviewCreate
-from services.sentiment_analise.bot_sentiment import analise_sentiment
+from services.filter_messagens.filter_messagens import sanitize_sentiment
+from services.regrecio_logisc.analite_category import classificar_mensagem
+from services.sentiment_analise.bot_sentiment import analisar_sentimento
 
 
 def create_review(db: Session, review: ReviewCreate) -> Review:
@@ -14,18 +16,21 @@ def create_review(db: Session, review: ReviewCreate) -> Review:
     Cria uma nova avaliação no banco de dados.
 
     Args:
-        db (Session): Sessão do banco de dados do SQLAlchemy.
-        review (ReviewCreate): Dados necessários para criar uma nova avaliação.
-        sentiment (str): Resultado da análise de sentimento para a avaliação.
+        db (Session): Sessão do banco de dados.
+        review (ReviewCreate): Objeto contendo os dados da avaliação a ser criada.
 
     Returns:
-        Review: O objeto da avaliação recém-criada.
+        Review: Objeto de avaliação criado e salvo no banco de dados.
     """
 
-    sentiment: str = analise_sentiment(review.text).lower()
 
-    category = "suporte"
-    db_review = Review(text=review.text, sentiment=sentiment, category=category)
+    sentiment: str = analisar_sentimento(review.text)
+    sentiment_sanitize: str = sanitize_sentiment(sentiment)
+    category: str = classificar_mensagem(review.text).lower()
+
+    db_review = Review(
+        text=review.text, sentiment=sentiment_sanitize, category=category
+    )
     db.add(db_review)
     db.commit()
     db.refresh(db_review)
@@ -86,9 +91,9 @@ def get_review_report(
     )
 
     result = {
-        "serviço": {"positive": 0, "negative": 0, "neutral": 0},
-        "produto": {"positive": 0, "negative": 0, "neutral": 0},
-        "suporte": {"positive": 0, "negative": 0, "neutral": 0},
+        "serviço": {"positiva": 0, "negativa": 0, "neutra": 0},
+        "produto": {"positiva": 0, "negativa": 0, "neutra": 0},
+        "suporte": {"positiva": 0, "negativa": 0, "neutra": 0},
     }
 
     for category, sentiment, count in report:
