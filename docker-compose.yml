@@ -16,7 +16,6 @@ services:
 
   web:
     build: .
-    entrypoint: compile/entrypoint.sh
     container_name: sentiment-api
     ports:
       - "8000:8000"
