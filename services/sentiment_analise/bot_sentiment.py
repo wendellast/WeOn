@@ -2,6 +2,7 @@ from gradio_client import Client
 
 client = Client("wendellast/WeOn")
 
+
 def analise_sentiment(message: str) -> str:
     """
     Envia uma mensagem para o cliente e retorna a resposta.
@@ -18,9 +19,6 @@ def analise_sentiment(message: str) -> str:
         max_tokens=20,
         temperature=0.7,
         top_p=0.95,
-        api_name="/chat"
+        api_name="/chat",
     )
     return result
-
-
-

@@ -8,7 +8,7 @@ table_registry = registry()
 @table_registry.mapped_as_dataclass
 class Review:
     __tablename__ = "reviews"
-    __table_args__ = {"extend_existing": True}  # Evita conflito de mapeamento duplicado
+    __table_args__ = {"extend_existing": True}
 
     id = Column(String, primary_key=True, index=True, default=lambda: shortuuid.uuid())
     text = Column(String, nullable=False)

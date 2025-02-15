@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from models.review import Review
 from schemas.review import ReviewCreate
+from services.sentiment_analise.bot_sentiment import analise_sentiment
 
 
 def create_review(db: Session, review: ReviewCreate) -> Review:
@@ -21,7 +22,8 @@ def create_review(db: Session, review: ReviewCreate) -> Review:
         Review: O objeto da avaliação recém-criada.
     """
 
-    sentiment = "negative"
+    sentiment: str = analise_sentiment(review.text).lower()
+
     category = "suporte"
     db_review = Review(text=review.text, sentiment=sentiment, category=category)
     db.add(db_review)
