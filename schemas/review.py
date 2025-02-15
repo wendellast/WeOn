@@ -21,9 +21,9 @@ class ReviewResponse(ReviewBase):
 
 
 class SentimentCount(BaseModel):
-    positive: int
-    negative: int
-    neutral: int
+    positiva: int
+    negativa: int
+    neutra: int
 
     model_config = ConfigDict(
         alias_generator=lambda s: s.lower(), populate_by_name=True

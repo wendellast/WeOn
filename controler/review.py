@@ -23,7 +23,6 @@ def create_review(db: Session, review: ReviewCreate) -> Review:
         Review: Objeto de avaliação criado e salvo no banco de dados.
     """
 
-
     sentiment: str = analisar_sentimento(review.text)
     sentiment_sanitize: str = sanitize_sentiment(sentiment)
     category: str = classificar_mensagem(review.text).lower()
