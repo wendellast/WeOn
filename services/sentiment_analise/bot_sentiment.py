@@ -1,22 +1,21 @@
 from gradio_client import Client
 
-client = Client("wendellast/WeOn")
 
-
-def analise_sentiment(message: str) -> str:
+def analisar_sentimento(texto: str) -> str:
     """
-    Envia uma mensagem para o cliente e retorna a resposta.
+    Analisa o sentimento de um texto fornecido.
 
     Args:
-        message (str): A mensagem a ser enviada.
+        texto (str): O texto a ser analisado.
 
     Returns:
-        str: A resposta do cliente.
+        str: O resultado da análise de sentimento.
     """
+    client = Client("wendellast/WeOn")
     result = client.predict(
-        message=message,
+        message=texto,
         system_message="",
-        max_tokens=20,
+        max_tokens=512,
         temperature=0.7,
         top_p=0.95,
         api_name="/chat",
