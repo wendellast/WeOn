@@ -2,6 +2,10 @@
 - Python 3.13
 - Docker
 
+## Pode acessa o deploy de teste aqui abaixo
+
+- [Deploy Teste do Projeto](https://hublast.com/weon/docs)
+
 ## Setup Instructions
 
 1. **Create a Virtual Environment**
