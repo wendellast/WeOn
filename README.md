@@ -1,61 +1,61 @@
-## Requirements
+## Requisitos
 - Python 3.13
 - Docker
 
-## Pode acessa o deploy de teste aqui abaixo
+## Pode acessar o deploy de teste aqui abaixo
 
 - [Deploy Teste do Projeto](https://hublast.com/weon/docs)
 
-## Setup Instructions
+## Instruções de Configuração
 
-1. **Create a Virtual Environment**
-   ```sh
-   python -m venv venv
-   ```
+1. **Crie um Ambiente Virtual**
+    ```sh
+    python -m venv venv
+    ```
 
-2. **Activate the Virtual Environment**
-   - On Windows:
-     ```sh
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```sh
-     source venv/bin/activate
-     ```
+2. **Ative o Ambiente Virtual**
+    - No Windows:
+      ```sh
+      venv\Scripts\activate
+      ```
+    - No macOS/Linux:
+      ```sh
+      source venv/bin/activate
+      ```
 
-3. **Install Dependencies**
-   ```sh
-   pip install -r requirements.txt
-   ```
+3. **Instale as Dependências**
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-4. **Run Docker**
-   ```sh
-   docker compose up --build -d
-   ```
+4. **Execute o Docker**
+    ```sh
+    docker compose up --build -d
+    ```
 
-5. **Apply Migrations**
-   ```sh
-   alembic upgrade head
-   ```
+5. **Aplique as Migrações**
+    ```sh
+    alembic upgrade head
+    ```
 
-6. **Access the API**
-   - Open `http://127.0.0.1:8000` in your browser.
-   - Visit `http://127.0.0.1:8000/docs` to test requests using Swagger.
+6. **Acesse a API**
+    - Abra `http://127.0.0.1:8000` no seu navegador.
+    - Visite `http://127.0.0.1:8000/docs` para testar requisições usando Swagger.
 
-## Routes
-- **POST** `/reviews/` → Create a review
-- **GET** `/reviews/` → List reviews
-- **GET** `/reviews/id/{id}` → Get review by ID
-- **GET** `/reviews/report` → Get review report
+## Rotas
+- **POST** `/reviews/` → Criar uma avaliação
+- **GET** `/reviews/` → Listar avaliações
+- **GET** `/reviews/id/{id}` → Obter avaliação por ID
+- **GET** `/reviews/report` → Obter relatório de avaliações
+- **GET** `/docs` → Testar API com Swagger
 
+## Tarefas
+Use o comando `task` no terminal para usar um dos atalhos abaixo:
 
-## Tasks
-use o comando `task` no terminal para usa um dos atalhos abaixo:
-
-- **Lint**: `task lint` (Check code formatting)
-- **Fix Formatting**: `task correct` (Auto-format code)
-- **Run Tests**: `task test` (Run tests with coverage)
-- **Generate Coverage Report**: `task post_test` (Create HTML coverage report)
+- **Lint**: `task lint` (Verificar formatação do código)
+- **Corrigir Formatação**: `task correct` (Auto-formatar código)
+- **Executar Testes**: `task test` (Executar testes com cobertura)
+- **Gerar Relatório de Cobertura**: `task post_test` (Criar relatório de cobertura em HTML)
 
 ## Análise de Mensagens
 

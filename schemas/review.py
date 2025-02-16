@@ -3,6 +3,10 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict
 
 
+class Message(BaseModel):
+    message: str
+
+
 class ReviewBase(BaseModel):
     text: str
 
