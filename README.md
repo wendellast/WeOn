@@ -53,3 +53,10 @@ use o comando `task` no terminal para usa um dos atalhos abaixo:
 - **Run Tests**: `task test` (Run tests with coverage)
 - **Generate Coverage Report**: `task post_test` (Create HTML coverage report)
 
+## Análise de Mensagens
+
+Para a análise de sentimentos, o projeto está usando `llm` com `Llama-3.2-3B` hospedado no `Hugging Face`. Abaixo está o link do projeto:
+
+- [hunface-llm](https://huggingface.co/collections/wendellast/weon-67afffa463fee231f49ac1b8)
+
+Para a análise da categoria das mensagens, o projeto está usando uma `regressão logística`.
