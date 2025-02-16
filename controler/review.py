@@ -52,7 +52,7 @@ def get_review(db: Session, review_id: str) -> Optional[Review]:
 
 def get_reviews(db: Session, skip: int = 0, limit: int = 10) -> List[Review]:
     """
-    Recupera uma lista de avaliações com paginação opcional.
+    Recupera uma lista de avaliações
 
     Args:
         db (Session): Sessão do banco de dados do SQLAlchemy.

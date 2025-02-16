@@ -22,7 +22,7 @@ def create_review(
     review: ReviewCreate, db: Session = Depends(get_db)
 ) -> ReviewResponse:
     """
-    Cria uma nova review com classificação de sentimento.
+    Cria uma nova messagem de avaliação.
 
     Args:
         review (ReviewCreate): Dados da review a ser criada.
@@ -43,7 +43,7 @@ def get_reviews(
     db: Session = Depends(get_db),
 ) -> List[ReviewResponse]:
     """
-    Retorna uma lista de reviews com paginação.
+    Retorna uma lista de reviews das avaliação.
 
     Args:
         skip (int): Número de reviews a pular (padrão: 0).
